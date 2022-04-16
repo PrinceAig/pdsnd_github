@@ -17,7 +17,6 @@ def get_filters():
     """
     print('Hello! Let\'s explore some US bikeshare data!')
 
-    # TO DO: get user input for city (chicago, new york, washington)
     while True:
         city = input('Which city would you like to analyze, Chicago, New York or Washington? ').lower()
         if city == 'chicago' or city == 'new york' or city == 'washington':
@@ -25,7 +24,6 @@ def get_filters():
         else:
             print('\nInvalid input')
 
-    # TO DO: check for filter and get user input for month (between January and June)
     while True:
         month_filter = input('Would you like to filter by month? Enter yes or no. ').lower()
         if month_filter == 'no':
@@ -42,7 +40,6 @@ def get_filters():
         else:
             print('\nInvalid input')
 
-    # TO DO: check for filter and get user input for day of week (all, monday, tuesday, ... sunday)
     while True:
         day_filter = input('Would you like to filter by day of the week? Enter yes or no. ').lower()
         if day_filter == 'no':
@@ -108,16 +105,13 @@ def time_stats(df):
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
 
-    # TO DO: display the most common month
     popular_month = df['month'].mode()[0]
     months = ['january', 'february', 'march', 'april', 'may', 'june']
     print('Most common month:', months[popular_month - 1].title())
 
-    # TO DO: display the most common day of week
     popular_day = df['day_of_week'].mode()[0]
     print('Most common day of week:', popular_day)
 
-    # TO DO: display the most common start hour
     df['hour'] = df['Start Time'].dt.hour
     popular_hour = df['hour'].mode()[0]
     print('Most frequent start hour:', popular_hour)
@@ -132,15 +126,12 @@ def station_stats(df):
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
 
-    # TO DO: display most commonly used start station
     popular_start_station = df['Start Station'].mode()[0]
     print('Most commonly used start station:', popular_start_station)
 
-    # TO DO: display most commonly used end station
     popular_end_station = df['End Station'].mode()[0]
     print('Most commonly used end station:', popular_end_station)
 
-    # TO DO: display most frequent combination of start station and end station trip
     popular_start_end_combo = df.groupby(['Start Station','End Station']).size().nlargest(1)
     print('\nMost frequent combination of start station and end station trip:\n', popular_start_end_combo)
 
@@ -154,14 +145,12 @@ def trip_duration_stats(df):
     print('\nCalculating Trip Duration...\n')
     start_time = time.time()
 
-    # TO DO: display total travel time
     total_time = df['Trip Duration'].sum()
     hours = total_time // 3600
     minutes = (total_time % 3600) // 60
     seconds = (total_time % 3600) % 60
     print('Total travel time: {} hours, {} minutes and {} seconds'.format(hours, minutes, seconds))
 
-    # TO DO: display mean travel time
     mean_time = df['Trip Duration'].mean()
     hours = int(mean_time // 3600)
     minutes = int((mean_time % 3600) // 60)
@@ -178,27 +167,22 @@ def user_stats(df):
     print('\nCalculating User Stats...\n')
     start_time = time.time()
 
-    # TO DO: Display counts of user types
     user_types = df['User Type'].value_counts()
     print('Counts of user type:\n', user_types)
 
-    # TO DO: Display counts of gender
     try:
         gender_count = df['Gender'].value_counts()
         print('\nCounts of gender:\n', gender_count)
     except KeyError:
         print('\nNo gender data to share.')
 
-    # TO DO: Display earliest year of birth
     try:
         earliest_birth = int(df['Birth Year'].min())
         print('\nEarliest year of birth:', earliest_birth)
 
-    # TO DO: Display most recent year of birth
         latest_birth = int(df['Birth Year'].max())
         print('Most recent year of birth:', latest_birth)
 
-    # TO DO: Display most common year of birth
         common_birth = int(df['Birth Year'].mode()[0])
         print('Most common year of birth:', common_birth)
 
@@ -212,7 +196,6 @@ def user_stats(df):
 def raw_data(df):
     """Displays 5 lines of raw data."""
 
-    # TO DO: display 5 lines of raw data
     row_from = 0
     row_to = 5
     view_data = input('\nWould you like to see the first 5 rows of the raw data? Yes or No? ').lower()
