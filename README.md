@@ -4,10 +4,10 @@
 This project and the README file were created on the 16th of April, 2022.
 
 ### Project Title
-Replace the Project Title
+Bikeshare_Github
 
 ### Description
-Describe what your project is about and what it does
+This project analyzes bikeshare data by city, month and day of the week.
 
 ### Files used
 Include the files used
