@@ -13,4 +13,4 @@ This project analyzes bikeshare data by city, month and day of the week.
 bikeshare.py, chicago.csv, new_york_city.csv, washington.csv
 
 ### Credits
-htt=ps://pandas.pydata.org/docs/reference/index.html#api
+https://pandas.pydata.org/docs/reference/index.html#api
