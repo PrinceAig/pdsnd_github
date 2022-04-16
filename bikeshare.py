@@ -196,6 +196,7 @@ def user_stats(df):
 def raw_data(df):
     """Displays 5 lines of raw data."""
 
+    pd.set_option('display.max_columns', 200)
     row_from = 0
     row_to = 5
     view_data = input('\nWould you like to see the first 5 rows of the raw data? Yes or No? ').lower()
